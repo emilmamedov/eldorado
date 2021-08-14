@@ -1,0 +1,733 @@
+                            @font-face {
+                                font-family: 'Verdana-Regular';
+                                src: url('../fonts/Verdana-Regular.ttf');
+                                font-weight: 400;
+                                font-style: normal;
+                            }
+                            
+                            @font-face {
+                                font-family: 'Verdana-Bold';
+                                src: url('../fonts/Verdana-Bold.ttf');
+                                font-weight: 700;
+                                font-style: normal;
+                            }
+                            
+                            @font-face {
+                                font-family: 'Ghotam-Black';
+                                src: url('../fonts/Gotham-Black.ttf');
+                                font-weight: 900;
+                                font-style: normal;
+                            }
+                            
+                            @font-face {
+                                font-family: 'DIN2014-ExtraBold';
+                                src: url('../fonts/DIN2014-ExtraBold.otf');
+                                font-weight: 800;
+                                font-style: normal;
+                            }
+                            
+                            @font-face {
+                                font-family: 'DINpro-Medium';
+                                src: url('../fonts/dinpro-medium.ttf');
+                                font-weight: 500;
+                                font-style: normal;
+                            }
+                            
+                            * {
+                                margin: 0;
+                                padding: 0;
+                                box-sizing: border-box;
+                            }
+                            
+                            body {
+                                font-family: 'Verdana-Regular', sans-serif;
+                            }
+                            
+                            a {
+                                display: inline-block;
+                                text-decoration: none;
+                                color: #000;
+                            }
+                            
+                            span {
+                                display: inline-block;
+                            }
+                            
+                            li {
+                                list-style: none;
+                            }
+                            
+                            input,
+                            button,
+                            select,
+                            textarea {
+                                outline: none;
+                            }
+                            
+                            .carcas {
+                                max-width: 956px;
+                                width: 100%;
+                                margin: 0 auto;
+                                padding: 0 10px;
+                                background: #2F2F2F;
+                            }
+                            
+                            .content {
+                                max-width: 600px;
+                                width: 100%;
+                                margin: 0 auto;
+                                margin-top: 40px;
+                            }
+                            
+                            .wrapper {
+                                max-width: 540px;
+                                width: 100%;
+                                margin: 0 auto;
+                            }
+                            /*========================================================================*/
+                            /* HAMBURGER */
+                            
+                            .hamburger {
+                                padding-left: 5px;
+                                display: inline-block;
+                                cursor: pointer;
+                                transition-property: opacity, filter;
+                                transition-duration: 0.15s;
+                                transition-timing-function: linear;
+                                font: inherit;
+                                color: inherit;
+                                text-transform: none;
+                                background-color: transparent;
+                                border: 0;
+                                margin: 0;
+                                overflow: visible;
+                                order: 1;
+                            }
+                            
+                            .hamburger.active .hamburger-inner,
+                            .hamburger.active .hamburger-inner::before,
+                            .hamburger.active .hamburger-inner::after {
+                                background-color: #7EB928;
+                            }
+                            
+                            .hamburger-box {
+                                width: 40px;
+                                height: 24px;
+                                display: inline-block;
+                                position: relative;
+                            }
+                            
+                            .hamburger-inner {
+                                display: block;
+                                top: 50%;
+                                margin-top: -2px;
+                            }
+                            
+                            .hamburger-inner,
+                            .hamburger-inner::before,
+                            .hamburger-inner::after {
+                                width: 28px;
+                                height: 4px;
+                                background-color: #7EB928;
+                                border-radius: 4px;
+                                position: absolute;
+                                transition-property: transform;
+                                transition-duration: 0.15s;
+                                transition-timing-function: ease;
+                            }
+                            
+                            .hamburger-inner::before,
+                            .hamburger-inner::after {
+                                content: "";
+                                display: block;
+                            }
+                            
+                            .hamburger-inner::before {
+                                top: -8px;
+                            }
+                            
+                            .hamburger-inner::after {
+                                bottom: -10px;
+                            }
+                            
+                            .hamburger--collapse .hamburger-inner {
+                                top: auto;
+                                bottom: 0;
+                                transition-duration: 0.13s;
+                                transition-delay: 0.13s;
+                                transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                            }
+                            
+                            .hamburger--collapse .hamburger-inner::after {
+                                top: -16px;
+                                transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear;
+                            }
+                            
+                            .hamburger--collapse .hamburger-inner::before {
+                                transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                            }
+                            
+                            .hamburger--collapse.active .hamburger-inner {
+                                transform: translate3d(0, -10px, 0) rotate(-45deg);
+                                transition-delay: 0.22s;
+                                transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                            }
+                            
+                            .hamburger--collapse.active .hamburger-inner::after {
+                                top: 0;
+                                opacity: 1;
+                                transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear;
+                            }
+                            
+                            .hamburger--collapse.active .hamburger-inner::before {
+                                top: 0;
+                                transform: rotate(-90deg);
+                                transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+                            }
+                            
+                            header .menu {
+                                position: absolute;
+                                top: 81px;
+                                left: 0;
+                                z-index: 99;
+                                width: 50%;
+                                transform: translateX(-100%);
+                                transition: all 0.5s;
+                                background-color: #fe0;
+                                padding: 30px 0;
+                            }
+                            
+                            header .menu.active {
+                                transform: translateX(0);
+                                display: none;
+                            }
+                            
+                            header .menu ul {
+                                flex-direction: column;
+                                margin-bottom: 30px;
+                            }
+                            
+                            header .menu li {
+                                margin-bottom: 15px;
+                            }
+                            /* ================================================================ */
+                            /*SECTION-TOP*/
+                            
+                            .section_top {
+                                display: inline-block;
+                                font-family: 'Verdana-Bold';
+                                font-weight: 700;
+                                display: flex;
+                                justify-content: center;
+                                position: relative;
+                                padding-top: 80px;
+                            }
+                            
+                            .top_title {
+                                font-family: 'DIN2014-ExtraBold';
+                                font-weight: 800;
+                                font-size: 45px;
+                                line-height: 38px;
+                                color: #fff;
+                            }
+                            
+                            .top_nummber {
+                                position: absolute;
+                                top: 80px;
+                                font-family: 'Ghotam-Black';
+                                font-weight: 900;
+                                font-size: 200px;
+                                line-height: 38px;
+                                color: rgba(255, 255, 255, 0.06);
+                            }
+                            /* ======================================================================= */
+                            
+                            header .container {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                min-height: 47px;
+                                background-color: #fff;
+                                padding: 0 30px;
+                            }
+                            /* ========================================================================== */
+                            /* MAIN_SECTION */
+                            
+                            .main {
+                                padding: 30px;
+                                background: #c1002d;
+                                position: relative;
+                            }
+                            
+                            .pattern {
+                                position: absolute;
+                                top: 53%;
+                            }
+                            
+                            .offers {
+                                display: flex;
+                                justify-content: space-between;
+                                color: #fff;
+                            }
+                            
+                            .offers_text span {
+                                font-family: 'Verdana-Bold';
+                                font-weight: bold;
+                                font-size: 14px;
+                                line-height: 38px;
+                                white-space: nowrap;
+                            }
+                            
+                            .offers_text {
+                                position: relative;
+                                padding: 15px;
+                                background: #A60229;
+                                border-radius: 20px;
+                                font-size: 13px;
+                                line-height: 16px;
+                                height: 121px;
+                                margin-top: 17px;
+                            }
+                            
+                            .offers_text::after {
+                                content: '';
+                                position: absolute;
+                                top: 45px;
+                                right: -30px;
+                                width: 0;
+                                height: 0;
+                                border-bottom: 31px solid #A60229;
+                                border-right: 31px solid transparent;
+                            }
+                            
+                            .offers_img {
+                                margin-left: 9px;
+                                height: 188px;
+                            }
+                            /* =========================================================================== */
+                            /* SECTION PRODUCT */
+                            
+                            .product_head {
+                                display: flex;
+                                justify-content: space-between;
+                                font-family: 'DINpro-Medium';
+                                font-weight: 500;
+                                font-size: 12px;
+                                line-height: 38px;
+                                color: #fff;
+                                text-transform: uppercase;
+                                background-color: #7EB928;
+                                padding: 10px 15px;
+                                border-top-left-radius: 10px;
+                                border-top-right-radius: 10px;
+                            }
+                            
+                            .product_wrap {
+                                display: flex;
+                            }
+                            
+                            .product_amount {
+                                margin-right: 20px;
+                            }
+                            
+                            .product_count {
+                                margin-right: 20px;
+                            }
+                            
+                            .product_body {
+                                background-color: #fff;
+                                color: #353535;
+                                position: relative;
+                            }
+                            
+                            .our_product_wrap {
+                                border-bottom: 1px solid rgba(196, 196, 196, 0.19);
+                            }
+                            
+                            .our_product1 {
+                                padding: 0 15px;
+                                display: flex;
+                                justify-content: space-between;
+                                min-height: 82px;
+                                align-items: center;
+                            }
+                            
+                            .our_product_text {
+                                width: 183px;
+                                font-size: 12px;
+                                line-height: 17px;
+                            }
+                            
+                            .our_product_price {
+                                padding-right: 20px;
+                                font-size: 12px;
+                                line-height: 25px;
+                                font-family: 'Verdana-Bold';
+                                color: #353535;
+                            }
+                            
+                            .our_product_nummber {
+                                font-size: 12px;
+                                line-height: 25px;
+                                color: #353535;
+                            }
+                            
+                            .delivery_wrap {
+                                border-bottom: 1px solid rgba(196, 196, 196, 0.19);
+                            }
+                            
+                            .delivery {
+                                padding: 0 15px;
+                                display: flex;
+                                justify-content: space-between;
+                                min-height: 44px;
+                                align-items: center;
+                            }
+                            
+                            .delivery_inner {
+                                display: flex;
+                            }
+                            
+                            .deliver_name {
+                                margin-left: 10px;
+                                font-size: 12px;
+                                line-height: 25px;
+                                font-family: 'Verdana-Bold';
+                            }
+                            
+                            .delivery_price {
+                                margin-right: 30px;
+                                font-size: 12px;
+                                line-height: 25px;
+                                font-family: 'Verdana-Bold';
+                            }
+                            
+                            .payment {
+                                display: flex;
+                                justify-content: space-between;
+                                min-height: 45px;
+                                align-items: center;
+                                padding: 0 15px;
+                            }
+                            
+                            .payment_text {
+                                font-family: 'Verdana-Bold';
+                                font-size: 17px;
+                                line-height: 25px;
+                            }
+                            
+                            .payment_price {
+                                font-family: 'Verdana-Bold';
+                                font-size: 17px;
+                                line-height: 25px;
+                            }
+                            
+                            .product_footer {
+                                background-color: #F3F3F3;
+                                color: #353535;
+                                display: flex;
+                                justify-content: space-between;
+                                padding: 20px 40px;
+                                position: relative;
+                                border-bottom-left-radius: 10px;
+                                border-bottom-right-radius: 10px;
+                            }
+                            
+                            .recipient {
+                                display: flex;
+                            }
+                            
+                            .recipient_img {
+                                padding-top: 5px;
+                            }
+                            
+                            .recipient_info {
+                                width: 183px;
+                                padding-left: 15px;
+                            }
+                            
+                            .recipient_title {
+                                font-family: 'Verdana-Bold';
+                                font-size: 12px;
+                                line-height: 20px;
+                            }
+                            
+                            .recipient_name {
+                                font-size: 12px;
+                                line-height: 20px;
+                            }
+                            
+                            .recipient_text {
+                                font-size: 11px;
+                                line-height: 12px;
+                                color: rgba(53, 53, 53, 0.54);
+                            }
+                            
+                            .product_footer_delivery {
+                                display: flex;
+                            }
+                            
+                            .footer_delivery_img {
+                                padding: 4px 15px 0 0;
+                                width: 37px;
+                                height: 27px;
+                            }
+                            
+                            .delivery_title {
+                                font-size: 12px;
+                                line-height: 20px;
+                                font-weight: 700;
+                            }
+                            
+                            .delivery_address {
+                                font-size: 12px;
+                                line-height: 20px;
+                            }
+                            
+                            .delivery_text {
+                                font-size: 11px;
+                                line-height: 12px;
+                                color: rgba(53, 53, 53, 0.54);
+                            }
+                            
+                            .delivery_text span {
+                                font-weight: 700;
+                            }
+                            
+                            .card {
+                                display: flex;
+                            }
+                            
+                            .card img {
+                                width: 100%;
+                            }
+                            
+                            .card_img1 {
+                                margin-right: 30px;
+                            }
+                            
+                            .invite {
+                                color: #fff;
+                                text-align: center;
+                                padding-top: 20px;
+                            }
+                            
+                            .invite_title {
+                                font-family: 'Verdana-Bold';
+                                font-size: 15px;
+                                line-height: 38px;
+                            }
+                            
+                            .invite_subtitle {
+                                font-size: 15px;
+                                line-height: 38px;
+                            }
+                            
+                            .comment {
+                                display: flex;
+                                background: #A60229;
+                                justify-content: center;
+                                text-align: center;
+                                color: #fff;
+                                min-height: 87px;
+                                align-items: center;
+                            }
+                            
+                            .comment_text {
+                                font-size: 13px;
+                                line-height: 23px;
+                            }
+                            /* =========================================================================== */
+                            /* SECTION WORRANTY */
+                            
+                            .worranty .container {
+                                background: #76BC34;
+                                display: flex;
+                                min-height: 58px;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                            
+                            .worranty_card {
+                                display: flex;
+                                align-items: center;
+                            }
+                            
+                            .worranty_card_inner {
+                                display: flex;
+                            }
+                            
+                            .worranty_card_img {
+                                padding: 15px 5px 0 15px;
+                            }
+                            /* =========================================================================== */
+                            /* FOOTER */
+                            
+                            .footer {
+                                padding-left: 30px;
+                                color: #8B8E90;
+                                background: #393E42;
+                            }
+                            
+                            .footer_info {
+                                display: flex;
+                                justify-content: space-between;
+                                color: #fff;
+                                padding-top: 20px;
+                            }
+                            
+                            .phone_text {
+                                font-family: 'Verdana-Bold';
+                                font-size: 11px;
+                                line-height: 23px;
+                                padding-bottom: 20px;
+                            }
+                            
+                            .social_text {
+                                font-family: 'Verdana-Bold';
+                                font-size: 11px;
+                                line-height: 23px;
+                                padding-bottom: 20px;
+                                display: flex;
+                                justify-content: start;
+                            }
+                            
+                            .footer_icon img {
+                                padding-right: 50px;
+                            }
+                            
+                            .footer_bottom_text {
+                                font-size: 9px;
+                                line-height: 14px;
+                            }
+                            
+                            .footer_text {
+                                max-width: 512px;
+                                min-height: 52px;
+                                align-items: center;
+                                display: flex;
+                            }
+                            
+                            .footer_web {
+                                min-height: 80px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                            }
+                            
+                            .clue {
+                                padding-top: 28px;
+                            }
+                            
+                            .footer_web_inner {
+                                display: contents;
+                            }
+                            
+                            .footer_link {
+                                padding-right: 50px;
+                            }
+                            /* ============================================================================ */
+                            
+                            @media(max-width:630px) {
+                                .offers_img {
+                                    display: none;
+                                }
+                                .offers_text::after {
+                                    display: contents;
+                                }
+                                .offers_text {
+                                    margin-bottom: 25px;
+                                }
+                            }
+                            
+                            @media(max-width:577px) {
+                                .top_title {
+                                    text-align: center;
+                                }
+                                .card {}
+                                .worranty .container {
+                                    display: grid;
+                                }
+                                .product_footer {
+                                    flex-wrap: wrap;
+                                }
+                                .product_footer_delivery {
+                                    padding-top: 20px;
+                                }
+                                .recipient_info {
+                                    padding-left: 10px;
+                                }
+                                .our_product1 {
+                                    flex-wrap: wrap;
+                                    align-items: center;
+                                }
+                                .our_product_text {
+                                    font-size: 11px;
+                                    line-height: 17px;
+                                    text-align: center
+                                }
+                                .worranty_img {
+                                    padding: 15px 0;
+                                }
+                                .worranty_card_img {
+                                    padding: 15px 0px 0 0px;
+                                }
+                                .footer_icon img {
+                                    padding-right: 30px;
+                                }
+                            }
+                            
+                            @media(max-width:495px) {
+                                .our_product_text {
+                                    font-size: 11px;
+                                    line-height: 17px;
+                                    max-width: 94px;
+                                    text-align: center
+                                }
+                                .card_img1 {
+                                    margin-right: 20px;
+                                }
+                            }
+                            
+                            @media(max-width:470px) {
+                                .offers_text span {
+                                    font-size: 13px;
+                                }
+                                .footer_icon img {
+                                    padding-right: 15px;
+                                }
+                            }
+                            
+                            @media(max-width:427px) {
+                                .offers_text span {
+                                    font-size: 11px;
+                                }
+                                .our_product_text {
+                                    order: 1;
+                                    padding-bottom: 20px;
+                                }
+                                .our_product_nummber {
+                                    margin: 0 20px;
+                                }
+                                .our_product_img {
+                                    padding: 10px 0;
+                                }
+                                .card_img1 {
+                                    margin-right: 15px;
+                                }
+                            }
+                            
+                            @media(max-width:390px) {
+                                .offers_text span {
+                                    font-size: 10px;
+                                }
+                                .footer_info {
+                                    flex-wrap: wrap;
+                                }
+                                .footer_phone {
+                                    padding-bottom: 25px;
+                                }
+                                .footer_social {
+                                    padding-bottom: 25px;
+                                }
+                            }
